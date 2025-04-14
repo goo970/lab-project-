@@ -51,3 +51,19 @@ def print_maze(maze):
 def validate_size(rows, cols):
     if rows % 2 == 0 or cols % 2 == 0:
         raise ValueError("Размеры должны быть нечетными!")
+    if __name__ == "__main__":
+        try:
+            validate_size(ROWS, COLS)
+            maze = create_empty_maze()
+            generate_maze(maze, 0, 0)
+            set_start_end(maze) 
+
+            if find_path(maze, 0, 0):
+                print("Путь найден!")
+            else:
+                print("Путь не найден!")
+
+                print_maze(maze)
+        except ValueError as e:
+                print(f"Ошибка: {e}")
+
