@@ -27,3 +27,21 @@ def generate_maze(maze, r, c):
             def set_start_end(maze):
                 maze[0][0] = START
                 maze[-1][-1] = END 
+    def find_path(maze, r, c):
+        if not is_valid(r, c) or maze[r][c] in (WALL, VISITED):
+            return False
+        
+        if maze[r][c] == END:
+             return True
+        
+    if maze[r][c] != START:
+        maze[r][c] = VISITED
+        
+    # Проверяем все направления
+    if find_path(maze, r+1, c) or find_path(maze, r-1, c) or find_path(maze, r, c+1) or find_path(maze, r, c-1):
+        return True
+        
+    # Откат
+    if maze[r][c] != START:
+        maze[r][c] = PATH
+    return False
