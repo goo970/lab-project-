@@ -45,3 +45,6 @@ def generate_maze(maze, r, c):
     if maze[r][c] != START:
         maze[r][c] = PATH
     return False
+def print_maze(maze):
+    for row in maze:
+        print(' '.join(row))set
