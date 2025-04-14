@@ -13,4 +13,15 @@ def create_empty_maze():
     return [[WALL for _ in range(COLS)] for _ in range(ROWS)]
 def is_valid(r, c):
     return 0 <= r < ROWS and 0 <= c < COLS
+def generate_maze(maze, r, c):
+    directions = [(-2, 0), (2, 0), (0, -2), (0, 2)]
+    random.shuffle(directions)
+    
+    maze[r][c] = PATH
+    
+    for dr, dc in directions:
+        nr, nc = r + dr, c + dc
+        if is_valid(nr, nc) and maze[nr][nc] == WALL:
+            maze[r + dr//2][c + dc//2] = PATH
+            generate_maze(maze, nr, nc)
 s
