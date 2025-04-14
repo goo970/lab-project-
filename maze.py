@@ -9,4 +9,6 @@ PATH = ' '
 VISITED = '.'
 START = 'S'
 END = 'E'
+def create_empty_maze():
+    return [[WALL for _ in range(COLS)] for _ in range(ROWS)]
 s
