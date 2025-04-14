@@ -24,4 +24,6 @@ def generate_maze(maze, r, c):
         if is_valid(nr, nc) and maze[nr][nc] == WALL:
             maze[r + dr//2][c + dc//2] = PATH
             generate_maze(maze, nr, nc)
-s
+            def set_start_end(maze):
+                maze[0][0] = START
+                maze[-1][-1] = END 
