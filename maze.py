@@ -47,4 +47,7 @@ def generate_maze(maze, r, c):
     return False
 def print_maze(maze):
     for row in maze:
-        print(' '.join(row))set
+        print(' '.join(row))
+def validate_size(rows, cols):
+    if rows % 2 == 0 or cols % 2 == 0:
+        raise ValueError("Размеры должны быть нечетными!")
